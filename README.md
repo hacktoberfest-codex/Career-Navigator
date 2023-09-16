@@ -6,8 +6,10 @@ To start our server -
 
 Go to Terminal and enter the following commands :
 
+```
 1) cd Login
 2) npm run dev
+```
 
 The problem statement we are working on is : "Making career choices and AI based counselling accessible to every child at secondary level along with aptitude tests and detailed career paths."
 
