@@ -15,3 +15,4 @@ The problem statement we are working on is : "Making career choices and AI based
 
 Our solution aims personalized recommendations, job descriptions, and salary insights to help students make informed decisions and optimize their educational pathways, using AI. 
 
+The login/register page allows the user to create their own account. The dashboard keeps the track of the user's progress and also gives the user some additional options and features so that he can get a guided and defined path for his career.
