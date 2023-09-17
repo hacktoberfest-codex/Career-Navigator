@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Quiz App</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+  <div class="select">
+    <div id="quiz-app">
+      <h1>Category</h1>
+      <select id="category-select"></select>
+      <button id="start-quiz-button">Start Quiz</button>
+    </div>
+  </div>
+   
+  <div class="start">
+		<div id="quiz-app"></div>
+    <div class="btns">
+      <button id="prev-button">Previous</button>
+      <button id="next-button">Next</button>
+		
+    </div>
+      <div class="top">
+			<p>SCORE = <span id="score">0</span></p>
+			<p>Questions = <span id="qs">1 </span>/20</p>
+		</div>
+
+		
+  </div>
+		
+
+
+    <div id="scoreModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Score</h2>
+        <p id="scoreValue"></p>
+    </div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
