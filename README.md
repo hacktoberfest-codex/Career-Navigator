@@ -2,13 +2,24 @@
 
 Installation packages required : express, mongodb, mongoose, body-parser, ejs, nodemon
 
-To start our server -
+To start our node server using local host -
 
 Go to Terminal and enter the following commands :
 
 ```
 1. cd Login
 2. npm run dev
+```
+
+To start our python server using local host -
+
+Go to Terminal and enter the following commands :
+
+```
+1. pip install pandas 
+2. pip install scikit-learn 
+3. pip install flask
+4. python app.py
 ```
 
 The problem statement we are working on is : "Making career choices and AI based counselling accessible to every child at secondary level along with aptitude tests and detailed career paths."
