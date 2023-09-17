@@ -27,7 +27,10 @@ Our solution aims personalized recommendations, job descriptions, and salary ins
 
 * This is a trivia quiz and chatbot application that helps users test their knowledge on various topics and clear their doubts.
 * The Trivia questions allow the user to test their knowledge on various topics based on their given choices. This will enhance their idea of their own progress, as well as motivate them to work harder for their desired goal.
-* The chatbot will help the user clear their doubts.
+
+A chatbot has been added which is not fully functional yet, but its key features will be :
+* Always Available: The chatbot is your round-the-clock career advisor, ready to chat with you day or night. It makes career exploration convenient for you.
+* Instant Homework Help: AI-powered tutoring platforms act like 24/7 study partners. Whether it's math, science, or languages, they're there to give you quick help and explanations when you're stuck on assignments.
 
 | Trivia | Chat-Bot |
 |---|---|
