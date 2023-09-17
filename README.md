@@ -10,17 +10,38 @@ Go to Terminal and enter the following commands :
 1. cd Login
 2. npm run dev
 ```
+## Career Recommendation Model
 
-To start our python server using local host -
+Welcome to the Career Navigator repository! This project aims to provide career recommendations based on user input, helping individuals make informed decisions about their future career paths. The recommendation model leverages machine learning and natural language processing techniques to suggest suitable career options.
 
-Go to Terminal and enter the following commands :
+## Features
 
-```
-1. pip install pandas 
-2. pip install scikit-learn 
-3. pip install flask
-4. python app.py
-```
+- **User Input:** Users can input information such as their skills, interests, hobbies, passion, favorite subjects, and educational background.
+
+- **Machine Learning:** The model utilizes a Random Forest classifier trained on a dataset of careers and related attributes to make personalized recommendations.
+
+- **Multiple Recommendations:** Users receive multiple career recommendations tailored to their input.
+
+- **Career Details:** Users can explore detailed information about recommended careers, including salary, job description, and job security.
+
+## Getting Started
+
+To get started with the Career Recommendation Model, follow these steps:
+
+1. Clone this repository to your local machine.
+
+   ```bash
+   git clone https://github.com/your-username/career-navigator.git
+   cd career-navigator
+   ```
+1. Install the required Python packages.
+   ```bash
+   pip install pandas scikit-learn flask
+   ```
+2. Run the application using the following command:
+   ```bash
+   python app.py
+   ```
 
 The problem statement we are working on is : "Making career choices and AI based counselling accessible to every child at secondary level along with aptitude tests and detailed career paths."
 
