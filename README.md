@@ -36,6 +36,10 @@ Our solution aims personalized recommendations, job descriptions, and salary ins
   
 ![dashboard](img/dashboard.png)
 
+* The users also have an option where they need to enter their career related details, and based on those inputs and AI's suggestions, some recommended career options are given to the user with some follow up questions to test their knowledge for the same.
+
+| ![prediction window](img/prediction1.png) | ![prediction window](img/prediction2.png) |
+
 * This is a trivia quiz and chatbot application that helps users test their knowledge on various topics and clear their doubts.
 * The Trivia questions allow the user to test their knowledge on various topics based on their given choices. This will enhance their idea of their own progress, as well as motivate them to work harder for their desired goal.
 
