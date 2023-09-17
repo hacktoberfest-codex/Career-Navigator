@@ -5,9 +5,29 @@ let question = 20;
 const scoreEl = document.getElementById("score");
 const qEl = document.getElementById("qs");
 
-let category = 12;
 let i = 0;
+
+async function fetchCategories() {
+	const response = await fetch("https://opentdb.com/api_category.php");
+	const data = await response.json();
+	return data.trivia_categories;
+}
+
+async function chooseCategory() {
+	const categories = await fetchCategories();
+	const categorySelect = document.querySelector("#category-select");
+
+	for (const category of categories) {
+		const option = document.createElement("option");
+		option.value = category.id;
+		option.textContent = category.name;
+		categorySelect.appendChild(option);
+	}
+}
+
 const fetchTriviaQuestions = async () => {
+	const categorySelect = document.querySelector("#category-select");
+	const category = categorySelect.value;
 	const response = await fetch(
 		`https://opentdb.com/api.php?amount=${question}&category=${category}&type=multiple`
 	);
@@ -19,6 +39,8 @@ const fetchTriviaQuestions = async () => {
 // Display a trivia question
 const displayTriviaQuestion = (target) => {
 	const quizApp = document.querySelector("#quiz-app");
+	const start = document.querySelector(".start");
+	start.style.display = "flex";
 	quizApp.innerHTML = `
    <div class=main-container>
   <div class="question">${target.question}</div>
@@ -124,6 +146,9 @@ function displayScoreModal(score) {
 }
 
 // Example usage: display the modal with a score of 85
-
+// Call the chooseCategory() function to generate the list of categories
+chooseCategory();
 // Start the quiz
-startQuiz();
+document
+	.querySelector("#start-quiz-button")
+	.addEventListener("click", startQuiz);
