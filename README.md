@@ -38,6 +38,8 @@ Our solution aims personalized recommendations, job descriptions, and salary ins
 
 * The users also have an option where they need to enter their career related details, and based on those inputs and AI's suggestions, some recommended career options are given to the user with some follow up questions to test their knowledge for the same.
 
+| Prediction Window 1 | Prediction Window 2 |
+|---|---|
 | ![prediction window](img/prediction1.png) | ![prediction window](img/prediction2.png) |
 
 * This is a trivia quiz and chatbot application that helps users test their knowledge on various topics and clear their doubts.
