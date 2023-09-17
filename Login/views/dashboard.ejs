@@ -1,126 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS file -->
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#ai-tuition">AI Tuition</a></li>
-                <li><a id="iq-link" href="#iq-test">IQ Test</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li class="logout"><a href="/logout">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard</title>
+		<link rel="stylesheet" href="styles.css" />
+		<!-- Include your CSS file -->
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#ai-tuition">AI Tuition</a></li>
+					<li><a id="iq-link" href="#iq-test">IQ Test</a></li>
+					<li><a href="#profile">Profile</a></li>
+					<li class="logout"><a href="/logout">Logout</a></li>
+				</ul>
+			</nav>
+		</header>
 
-    <main>
-        <% if (name) { %>
-            <p class="big-welcome">Welcome, <span class="animated-name"><%= name %></span>!</p>
-            <form method="GET" action="/logout">
-                <button type="submit">Logout</button>
-            </form>
-        <% } else { %>
-            <p>You are not logged in.</p>
-        <% } %>
-    </main>
+		<main>
+			<% if (name) { %>
+			<p class="big-welcome">
+				Welcome, <span class="animated-name"><%= name %></span>!
+			</p>
+			<form method="GET" action="/logout">
+				<button type="submit">Logout</button>
+			</form>
+			<% } else { %>
+			<p>You are not logged in.</p>
+			<% } %>
+		</main>
 
-    <style>
-        /* styles.css */
+		<style>
+			/* styles.css */
 
-/* Reset some default browser styles */
-body, h1, h2, p, ul, li {
-    margin: 0;
-    padding: 0;
-}
+			/* Reset some default browser styles */
+			body,
+			h1,
+			h2,
+			p,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+			}
 
-/* Apply styles to the header and navigation bar */
-header {
-    background-color: #007bff; /* Blue color for the header */
-    color: #fff;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+			/* Apply styles to the header and navigation bar */
+			header {
+				background-color: #007bff; /* Blue color for the header */
+				color: #fff;
+				padding: 10px 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 
-nav ul {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-}
+			nav ul {
+				list-style-type: none;
+				display: flex;
+				align-items: center;
+			}
 
-nav ul li {
-    margin-right: 20px;
-}
+			nav ul li {
+				margin-right: 20px;
+			}
 
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
-}
+			nav ul li a {
+				text-decoration: none;
+				color: #fff;
+				transition: color 0.3s;
+			}
 
-nav ul li a:hover {
-    color: #00f;
-}
+			nav ul li a:hover {
+				color: #00f;
+			}
 
-/* Style the logout button */
-.logout a {
-    background-color: #fff;
-    color: #007bff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-}
+			/* Style the logout button */
+			.logout a {
+				background-color: #fff;
+				color: #007bff;
+				padding: 5px 10px;
+				border-radius: 5px;
+				text-decoration: none;
+				transition: background-color 0.3s, color 0.3s;
+			}
 
-.logout a:hover {
-    background-color: #007bff;
-    color: #fff;
-}
+			.logout a:hover {
+				background-color: #007bff;
+				color: #fff;
+			}
 
-/* Style the big welcome message */
-.big-welcome {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+			/* Style the big welcome message */
+			.big-welcome {
+				font-size: 24px;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
 
-/* Add animation to the name */
-.animated-name {
-    animation: bounce 2s infinite;
-}
+			/* Add animation to the name */
+			.animated-name {
+				animation: bounce 2s infinite;
+			}
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
+			@keyframes bounce {
+				0%,
+				20%,
+				50%,
+				80%,
+				100% {
+					transform: translateY(0);
+				}
+				40% {
+					transform: translateY(-10px);
+				}
+				60% {
+					transform: translateY(-5px);
+				}
+			}
+		</style>
 
-    </style>
+		<script>
+			// Get a reference to the "IQ Test" link by its ID
+			const iqLink = document.getElementById("iq-link");
 
-<script>
-    // Get a reference to the "IQ Test" link by its ID
-    const iqLink = document.getElementById('iq-link');
+			// Add a click event listener to the "IQ Test" link
+			iqLink.addEventListener("click", function (event) {
+				event.preventDefault(); // Prevent the default link behavior (page scroll)
 
-    // Add a click event listener to the "IQ Test" link
-    iqLink.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default link behavior (page scroll)
-        
-        // Redirect to the 'iq.ejs' page or your desired URL
-        window.location.href = 'iq.ejs'; // Change 'iq.ejs' to your actual URL
-    });
-</script>
-</body>
+				// Redirect to the 'iq.ejs' page or your desired URL
+				window.location.href = "iq.ejs"; // Change 'iq.ejs' to your actual URL
+			});
+		</script>
+	</body>
 </html>

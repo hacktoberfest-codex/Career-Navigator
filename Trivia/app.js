@@ -1,75 +1,71 @@
 // Fetch trivia questions from the Trivia API
 let questions = [];
+let score = 0;
+let question = 20;
+const scoreEl = document.getElementById("score");
+const qEl = document.getElementById("qs");
 
 let category = 12;
+let i = 0;
 const fetchTriviaQuestions = async () => {
-  const response = await fetch(
-    `https://opentdb.com/api.php?amount=10&category=${category}&type=multiple`
-  );
-  const data = await response.json();
-  console.log(data.results);
-  return data.results;
+	const response = await fetch(
+		`https://opentdb.com/api.php?amount=${question}&category=${category}&type=multiple`
+	);
+	const data = await response.json();
+
+	return data.results;
 };
 
 // Display a trivia question
 const displayTriviaQuestion = (target) => {
-  const quizApp = document.querySelector("#quiz-app");
-  quizApp.innerHTML = `
+	const quizApp = document.querySelector("#quiz-app");
+	quizApp.innerHTML = `
    <div class=main-container>
   <div class="question">${target.question}</div>
   <div class="answers">
     <div class="answer cr">(a) ${target.correct_answer} </div>
-    <div class="answer"> (b) ${target.incorrect_answers[0]}</div>
-    <div class="answer">(c)  ${target.incorrect_answers[1]}</div>
-    <div class="answer"> (d) ${target.incorrect_answers[2]}</div>
+    <div class="answer">(b) ${target.incorrect_answers[0]}</div>
+    <div class="answer">(c) ${target.incorrect_answers[1]}</div>
+    <div class="answer">(d) ${target.incorrect_answers[2]}</div>
   </div>
 </div>
   `;
 
-  // Get the correct answer element
-  const correctAnswer = document.querySelector(".cr");
-  // Add an event listener to the quiz app element
-  quizApp.addEventListener("click", (event) => {
-    console.log("Clicked");
-    // Check if the target element is an answer button
-    if (event.target.classList.contains("answer")) {
-      // Check if the answer is correct
-      if (event.target.textContent === correctAnswer.textContent) {
-        // The answer is correct
-        event.target.classList.add("correct");
-      } else {
-        // The answer is incorrect
-        event.target.classList.add("incorrect");
-      }
-    }
-  });
+	// Get the correct answer element
+	const correctAnswer = document.querySelector(".cr");
+	// Add an event listener to the quiz app element
+	quizApp.addEventListener("click", (event) => {
+		// Check if the target element is an answer button
+		if (event.target.classList.contains("answer")) {
+			// Check if the answer is correct
+			if (event.target.innerHTML === correctAnswer.innerHTML) {
+				// The answer is correct
+				event.target.classList.add("correct");
+				quizApp.computedStyleMap.mousee;
+				score++;
+				scoreEl.textContent = score;
+			} else {
+				// The answer is incorrect
+				event.target.classList.add("incorrect");
+				correctAnswer.classList.add("correct");
+			}
+
+			qEl.textContent = i + 1;
+		}
+	});
 };
-let i = 0;
+
 // Start the quiz
 const startQuiz = async () => {
-  // Fetch trivia questions
-  questions = await fetchTriviaQuestions();
+	// Fetch trivia questions
+	questions = await fetchTriviaQuestions();
 
-  // Display the first question
-  displayTriviaQuestion(questions[i]);
+	// Display the first question
+	displayTriviaQuestion(questions[i]);
 };
 
-// // Check the user's answer
-// const checkAnswer = (answer) => {
-// 	const quizApp = document.querySelector("#quiz-app");
-// 	const correctAnswer = quizApp.querySelector(".cr");
-// 	console.log(correctAnswer);
-// 	if (answer.textContent === correctAnswer.textContent) {
-// 		// The answer is correct
-// 		correctAnswer.classList.add("correct");
-// 	} else {
-// 		// The answer is incorrect
-// 		correctAnswer.classList.add("correct");
-// 		answer.classList.add("incorrect");
-// 	}
-// };
 const answers = document.getElementsByClassName("answers");
-console.log(answers);
+
 // Get the next button element
 const nextButton = document.querySelector("#next-button");
 const prevButton = document.querySelector("#prev-button");
@@ -78,29 +74,56 @@ const prevButton = document.querySelector("#prev-button");
 
 // Add an event listener to the next button
 nextButton.addEventListener("click", () => {
-  // Get the current question index
-  i++;
+	// Get the current question index
+	i++;
 
-  // Increment the current question index
+	// Increment the current question index
 
-  // If the current question index is greater than the last question index, then the quiz is over
-  if (i > questions.length - 1) {
-    return;
-  }
+	// If the current question index is greater than the last question index, then the quiz is over
+	if (i === questions.length - 1) {
+		nextButton.innerHTML = "Submit";
+	}
 
-  // Display the next question
-  displayTriviaQuestion(questions[i]);
+	if (i > questions.length - 1) {
+		displayScoreModal(score);
+		return;
+	}
+	qEl.textContent = i + 1;
+
+	// Display the next question
+	displayTriviaQuestion(questions[i]);
 });
 prevButton.addEventListener("click", () => {
-  i--;
+	i--;
 
-  // If the current question index is greater than the last question index, then the quiz is over
-  if (i < 0) {
-    return;
-  }
+	// If the current question index is greater than the last question index, then the quiz is over
+	if (i < 0) {
+		i = 0;
+		return;
+	}
 
-  // Display the next question
-  displayTriviaQuestion(questions[i]);
+	if (i != questions.length - 1) {
+		nextButton.innerHTML = "Next";
+	}
+	qEl.textContent = i + 1;
+	// Display the next question
+	displayTriviaQuestion(questions[i]);
 });
+
+function displayScoreModal(score) {
+	const modal = document.getElementById("scoreModal");
+	const scoreValue = document.getElementById("scoreValue");
+	scoreValue.textContent = `Score: ${score}`;
+	modal.style.display = "block";
+
+	// Close the modal when the "x" button is clicked
+	const closeBtn = document.querySelector(".close");
+	closeBtn.addEventListener("click", () => {
+		modal.style.display = "none";
+	});
+}
+
+// Example usage: display the modal with a score of 85
+
 // Start the quiz
 startQuiz();
