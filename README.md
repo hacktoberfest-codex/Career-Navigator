@@ -34,7 +34,7 @@ A chatbot has been added which is not fully functional yet, but its key features
 
 | Trivia | Chat-Bot |
 |---|---|
-| ![trivia](img/trivia.jpeg) | ![chatbot](img/chatbot.png)) |
+| ![trivia](img/trivia.jpeg) | ![chatbot](img/chatbot.png) |
 
 * The IQ/Aptitude test will let the user know how much more they need to be prepared for various competitive exams as the IQ test is a very important part of those exams.
 
