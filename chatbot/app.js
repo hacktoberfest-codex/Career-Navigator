@@ -1,5 +1,4 @@
-// Key = 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
-const API_KEY = "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";
+
 const submitButton = document.getElementById("submit");
 const outputEl = document.getElementById("output");
 const inputEl = document.querySelector("input");
